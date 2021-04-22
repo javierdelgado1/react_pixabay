@@ -7,7 +7,7 @@ function App() {
   const [imagenes, guardarImagenes] = useState([]);
   const [paginaActual, guardarPaginaActual] = useState(1);
   const [totalPaginas, guardarTotalPaginas ] = useState(1);
-
+  const [loading, guardarLoading] = useState(false);
   useEffect(() => {
     if (busqueda === "") return;
     const consultarApi = async () => {
@@ -51,7 +51,7 @@ function App() {
       <div className="jumbotron">
         <p className="lead text-center">Buscador de imagenes </p>
 
-        <Formulario guardarBusqueda={guardarBusqueda}></Formulario>
+        <Formulario guardarBusqueda={guardarBusqueda} loading={loading}></Formulario>
       </div>
 
       <div className="row justify-content-center">
